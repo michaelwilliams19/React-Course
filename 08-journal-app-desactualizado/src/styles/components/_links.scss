@@ -1,0 +1,12 @@
+
+
+.link {
+    text-decoration: none;
+    color: $dark-grey;
+    // margin-top: 10px;
+    // padding-top: 10px;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

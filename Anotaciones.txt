@@ -1,0 +1,78 @@
+--------------------Seccion 2:
+Babel:  Nos permite utilizar caract actuales de JS y poder utilizar ese codigo en navegadores web que no soportan esa caracteristica aun.
+        React funciona en el background con babel. Esto significa que no tenemos que preocuparnos con las compatibilidades
+        ya que cuando un navegador web esta desactualizado o no es compatible, babel en esos casos, traduce el codigo que no le es compatible al navegador y
+        lo transforma en codigo compatible para esa version de navegador.
+
+Create React App: Es util, nos facilita creacion de proyectos, manejar modulos, etc.
+                    Para arrancar, se utiliza el comando: "npx create-react-app my-app"
+
+
+
+
+--------------------Sección 3.
+No se utiliza mas "var" ya que tiene funciones ocultan que dañan el codigo. Esto se llama hoisting donde significa que permite usar variables sin antes ser declarada
+y eso trae problemas a futuro. 
+Usar const o let.
+
+
+-----------React
+
+Componentes: es una pequeña pieza de codigo capturada reutilizable que puede tener estado o no.
+
+Estado: Como se encuentra la info del componente en un punto determinado.
+
+
+Para generar el esqueleto de react correr el comando: NPX CREATE-REACT-APP NOMBRE_APP
+Para correr el proyecto correr el comando: NPM START
+Para correr los test del proyecto correr el comando: NPM RUN TEST
+Creo que si es la primera vez que instalas react hay que correr: NPM INSTALL
+
+
+PARA GENERAR LA CARPETA DE BUILD: NPM RUN BUILD
+CUANDO SE CREA LA CARPETA, TAMBIEN ESTA BUENO TENER UN SERVIDOR LOCAL QUE SIRVA PARA VER LA PAGINA.
+ESO SE HACE CON EL COMANDO npm install --global http-server LUEGO POSICIONARSE EN LA CARPETA BUILD Y EJECUTAR HTTP-SERVER -0
+OTRA FORMA QUE ME SIRVIO ES EJECUTAR:
+-npm install http-server
+Y LUEGO: -NPX HTTP-SERVER
+
+
+
+REDUCER:
+Es una función comun y corriente.
+Debe ser funcion preocuparnos
+Debe retornar un nuevo estado
+
+Pasos reducer:
+1- Siempre vamos a tener un STATE (por ejemplo: un array de ToDos (tareas por hacer))
+2- Este state provee su informacion a la pagina o la vista. Esta pagina/vista no modifica el state directamente. Solo lo lee. 
+3- Cuando se necesite hacer una modificacion, la pagina o la vista va a generar una accion (ej. agregar tarea nueva). 
+4- Esta accion se envia al reducer y el reducer tendra la logica para saber que hacer.
+5- Entonces el reducer genera un nuevo estado y es el que informa nuevamente ese STATE a la pag/vista. 
+6- Se repite paso 1. Es ciclico esto.
+
+
+REDUX:
+No es  propio de react. Es independiente.
+Se puede utilizar en angular, react, etc.
+Es una forma de manejar el estado de la aplicación.
+
+Store: fuente unica de la verdad.  Es donde esta la informacion que mis componentes consumiran.
+        Se puede ver como un supermercado donde cualquier producto que necesitemos lo encontraremos ahi.
+
+En redux, siempre vamos a tener un STATE que siempre lo va a proveer el store.
+Donde tenemos una vista, la cual necesita informacion(state) que va a ser proveido por el store y se repiten los mismos pasos que en reducer.
+Con la dif de que al generar una accion para modificar la info, esta accion no va directamente al store, 
+primero va a un dispatcher que recibe dicha accion, la procesa y la redirecciona a un reducer especial. Este reducer es una combinacion de todos los reducer de mi app.
+
+Esto solamente es aplicable si todo el proceso es sincrono donde no hay peticiones http, o tareas asincronas, etc.
+
+Si tenemos una acciona asincrona como por ej realizar una autenticacion:
+Al hacer una accion de "Login" va a dirigise en el dispatcher y este va a notar que al ser algo asincrono y sabra que necesitara implementar un middleware.
+El cual recibira la tarea, la ejecutara, llama a la api, espera la resp etc y cuando tiene la respuesta, este middleware le envia la info al dispatcher nuevamente 
+y sigue su flujo al store.
+
+
+
+
+
